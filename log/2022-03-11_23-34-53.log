@@ -1,0 +1,57 @@
+INFO 23:34:53:317 ServerControl: open server socket on 2101 port.
+INFO 23:34:53:329 ExecutorManager: initialized.
+WARNING 23:34:53:506 BoneCPConnectFactory: SQLException : could not init DB connection:java.sql.SQLException: Unable to open a test connection to the given database. JDBC url = jdbc:mysql://localhost/terax, username = root. Terminating connection pool. Original Exception: ------
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1116)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:344)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2333)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2370)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2154)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:792)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:381)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:190)
+	at com.jolbox.bonecp.BoneCP.obtainRawInternalConnection(BoneCP.java:254)
+	at com.jolbox.bonecp.BoneCP.<init>(BoneCP.java:305)
+	at rlib.database.BoneCPConnectFactory.init(BoneCPConnectFactory.java:56)
+	at rlib.database.ConnectFactory.newBoneCPConnectFactory(ConnectFactory.java:23)
+	at tera.gameserver.manager.DataBaseManager.<init>(DataBaseManager.java:213)
+	at tera.gameserver.manager.DataBaseManager.getInstance(DataBaseManager.java:204)
+	at tera.gameserver.GameServer.main(GameServer.java:112)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+	at java.base/sun.nio.ch.Net.connect(Net.java:568)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:588)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/java.net.Socket.connect(Socket.java:583)
+	at java.base/java.net.Socket.<init>(Socket.java:507)
+	at java.base/java.net.Socket.<init>(Socket.java:319)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:257)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:294)
+	... 22 more
+------
+ : stack trace:
+rlib.database.BoneCPConnectFactory.init(BoneCPConnectFactory.java:61)
+rlib.database.ConnectFactory.newBoneCPConnectFactory(ConnectFactory.java:23)
+tera.gameserver.manager.DataBaseManager.<init>(DataBaseManager.java:213)
+tera.gameserver.manager.DataBaseManager.getInstance(DataBaseManager.java:204)
+tera.gameserver.GameServer.main(GameServer.java:112)
+
